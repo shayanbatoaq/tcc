@@ -1,36 +1,80 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# The Corporate Corner
 
-## Getting Started
+Premium corporate publication and admin dashboard for Pakistan's business ecosystem.
 
-First, run the development server:
+## Stack
+
+- Next.js App Router with TypeScript
+- Tailwind CSS v4
+- Framer Motion
+- Supabase Auth, database, and storage
+- TipTap rich text editor
+- Next Image optimization
+
+## Local setup
 
 ```bash
+npm install
+cp .env.example .env.local
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Create `.env.local`:
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```env
+NEXT_PUBLIC_SUPABASE_URL=your-project-url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your-anon-key
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Supabase
 
-## Learn More
+1. Create a Supabase project.
+2. Run `supabase/schema.sql` in the SQL editor.
+3. Optionally run `supabase/seed.sql`.
+4. Create the first admin user in Supabase Auth.
+5. Insert a role:
 
-To learn more about Next.js, take a look at the following resources:
+```sql
+insert into public.user_roles (user_id, role)
+values ('AUTH_USER_ID', 'admin');
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+The schema includes:
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+- `posts`
+- `categories`
+- `authors`
+- `submissions`
+- `media`
+- `homepage_settings`
+- `site_settings`
+- `user_roles`
 
-## Deploy on Vercel
+## Routes
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+Public:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- `/`
+- `/about`
+- `/categories`
+- `/categories/[slug]`
+- `/articles/[slug]`
+- `/get-featured`
+- `/submit-your-story`
+- `/contact`
+
+Admin:
+
+- `/admin/login`
+- `/admin`
+- `/admin/create`
+- `/admin/posts`
+- `/admin/submissions`
+- `/admin/media`
+- `/admin/authors`
+- `/admin/homepage`
+- `/admin/settings`
+
+## Notes
+
+The current build ships with polished dummy content so the site can be reviewed immediately. Supabase helper clients are included in `lib/supabase.ts`; wire server actions or route handlers to persist posts, submissions, media uploads, and settings.
