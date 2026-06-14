@@ -1,20 +1,23 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f8f6f1;
-  --foreground: #10151f;
-  --navy: #07111f;
-  --charcoal: #15171c;
-  --gold: #c9a96a;
-  --champagne: #eadfc8;
-  --mist: #f3efe6;
+  --background: #ffffff;
+  --foreground: #0f1c2a;
+  --brand-yellow: #f0cb30;
+  --brand-navy: #0f1c2a;
+  --ink-soft: #46515f;
+  --line: #e6e1d4;
+  --paper: #f8f7f2;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
-  --font-mono: "Geist Mono", "Geist Mono Fallback", ui-monospace, monospace;
+  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-navy: var(--brand-navy);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-paper: var(--paper);
 }
 
 * {
@@ -26,50 +29,35 @@ html {
 }
 
 body {
+  min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: "Geist", "Geist Fallback", ui-sans-serif, system-ui, sans-serif;
+  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+}
+
+button,
+input,
+textarea {
+  font: inherit;
 }
 
 ::selection {
-  background: rgba(201, 169, 106, 0.35);
+  background: rgba(240, 203, 48, 0.45);
+  color: var(--brand-navy);
 }
 
-.premium-gradient {
-  background:
-    radial-gradient(circle at 18% 12%, rgba(201, 169, 106, 0.16), transparent 28%),
-    linear-gradient(135deg, #07111f 0%, #111820 48%, #05070a 100%);
+.font-brand {
+  font-family: var(--font-cinzel), Georgia, "Times New Roman", serif;
 }
 
-.editorial-prose {
-  color: #2f3642;
-  font-size: 1.08rem;
-  line-height: 1.9;
+.editorial-grid {
+  background-image:
+    linear-gradient(rgba(15, 28, 42, 0.055) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 28, 42, 0.055) 1px, transparent 1px);
+  background-size: 42px 42px;
 }
 
-.editorial-prose h2 {
-  color: #10151f;
-  font-size: clamp(1.6rem, 3vw, 2.4rem);
-  line-height: 1.15;
-  margin: 2.4rem 0 1rem;
-  font-weight: 650;
-}
-
-.editorial-prose p {
-  margin: 1.25rem 0;
-}
-
-.tiptap {
-  min-height: 280px;
-  outline: none;
-}
-
-.tiptap p {
-  margin-bottom: 0.85rem;
-}
-
-.tiptap h2 {
-  font-size: 1.5rem;
-  font-weight: 650;
-  margin: 1.25rem 0 0.5rem;
+.section-shell {
+  margin-inline: auto;
+  width: min(100% - 2rem, 1180px);
 }
