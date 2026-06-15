@@ -118,7 +118,7 @@ export default function Home() {
         <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
           <div className="rounded-sm border border-brand-navy bg-brand-gold p-8 text-brand-navy shadow-[12px_12px_0_#0F1C2A]">
             <p className="font-brand text-base font-bold uppercase">Get featured</p>
-            <h2 className="mt-5 text-4xl font-bold leading-[1.06] sm:text-5xl">Position Your Story Where It Matters</h2>
+            <h2 className="mt-5 text-3xl font-bold leading-[1.06] sm:text-5xl">Position Your Story Where It Matters</h2>
           </div>
           <div>
             <p className="text-2xl leading-9 text-brand-navy">

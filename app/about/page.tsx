@@ -66,14 +66,14 @@ export default function AboutPage() {
         <div className="section-shell grid gap-8 lg:grid-cols-[0.95fr_0.55fr] lg:items-end">
           <div>
             <p className="font-brand text-base font-bold uppercase text-brand-gold">About the platform</p>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-[1.02] sm:text-6xl">About The Corporate Lens</h1>
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-[1.02] sm:text-6xl">About The Corporate Lens</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-white/72">
               A premium corporate media and storytelling platform built to document the people, decisions, and
               developments shaping Pakistan&apos;s business landscape.
             </p>
           </div>
           <div className="rounded-sm border border-brand-gold bg-brand-gold p-6 text-brand-navy">
-            <p className="font-brand text-2xl font-bold leading-tight">Beyond the Headlines</p>
+            <p className="font-brand text-xl font-bold leading-tight sm:text-2xl">Beyond the Headlines</p>
             <p className="mt-4 text-lg leading-7">
               Editorial credibility for companies, leaders, and institutions with stories that matter.
             </p>

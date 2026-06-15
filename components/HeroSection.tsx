@@ -18,8 +18,7 @@ export function HeroSection() {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.55, ease: "easeOut" }}
         >
-          <p className="font-brand text-base font-bold uppercase">The Corporate Lens</p>
-          <h1 className="mt-5 max-w-4xl text-5xl font-bold leading-[0.98] sm:text-6xl lg:text-7xl">Beyond the Headlines</h1>
+          <h1 className="max-w-4xl text-4xl font-bold leading-[0.98] sm:text-6xl lg:text-7xl">Beyond the Headlines</h1>
           <p className="mt-7 max-w-2xl text-xl leading-8 sm:text-2xl">
             The Corporate Lens is a premium corporate media and storytelling platform spotlighting the people,
             decisions, and developments shaping Pakistan&apos;s corporate landscape.

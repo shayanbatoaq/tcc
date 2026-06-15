@@ -35,7 +35,7 @@ export default function ContactPage() {
         <div className="section-shell grid gap-8 lg:grid-cols-[0.95fr_0.55fr] lg:items-end">
           <div>
             <p className="font-brand text-base font-bold uppercase">Contact</p>
-            <h1 className="mt-5 max-w-5xl text-5xl font-bold leading-[1.02] sm:text-6xl">Contact The Corporate Lens</h1>
+            <h1 className="mt-5 max-w-5xl text-4xl font-bold leading-[1.02] sm:text-6xl">Contact The Corporate Lens</h1>
             <p className="mt-6 max-w-3xl text-xl leading-8 text-brand-navy/78">
               For corporate storytelling, executive features, publication inquiries, and editorial collaborations,
               share the essentials with our team.
@@ -43,7 +43,7 @@ export default function ContactPage() {
           </div>
           <div className="rounded-sm border border-brand-navy bg-white p-6 shadow-[10px_10px_0_#0F1C2A]">
             <MessagesSquare aria-hidden className="mb-5 text-brand-navy" size={34} />
-            <p className="font-brand text-2xl font-bold leading-tight">Inquiry CTA</p>
+            <p className="font-brand text-xl font-bold leading-tight sm:text-2xl">Inquiry CTA</p>
             <p className="mt-4 text-lg leading-7 text-ink-muted">
               Tell us what needs to be seen, understood, and remembered.
             </p>
@@ -72,7 +72,7 @@ export default function ContactPage() {
           ))}
           <div className="rounded-sm bg-brand-navy p-7 text-white">
             <Send aria-hidden className="mb-6 text-brand-gold" size={28} />
-            <h2 className="text-3xl font-bold leading-tight">Position Your Story Where It Matters</h2>
+            <h2 className="text-2xl font-bold leading-tight sm:text-3xl">Position Your Story Where It Matters</h2>
             <p className="mt-4 text-lg leading-8 text-white/72">
               Share your announcement, leadership profile, event, or corporate milestone with editorial context.
             </p>

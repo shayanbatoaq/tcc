@@ -37,7 +37,7 @@ export function CTASection({
       <div className="section-shell grid gap-8 lg:grid-cols-[0.95fr_0.55fr] lg:items-center">
         <div>
           {eyebrow ? <p className={cn("font-brand text-sm font-bold uppercase", dark ? "text-brand-gold" : "text-brand-navy/65")}>{eyebrow}</p> : null}
-          <h2 className="mt-4 max-w-4xl text-4xl font-bold leading-[1.06] sm:text-6xl">{title}</h2>
+          <h2 className="mt-4 max-w-4xl text-3xl font-bold leading-[1.06] sm:text-6xl">{title}</h2>
           <p className={cn("mt-5 max-w-3xl text-xl leading-8", dark ? "text-white/72" : "text-brand-navy/75")}>{copy}</p>
         </div>
         <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">

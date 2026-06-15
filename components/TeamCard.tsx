@@ -24,7 +24,7 @@ export function TeamCard({ Icon = UserRound, compact = false, description, name,
           {compact ? <span className="font-brand text-xl font-bold">{initials}</span> : <Icon aria-hidden size={26} />}
         </div>
         <div>
-          <h3 className="text-2xl font-bold leading-tight text-brand-navy">{name}</h3>
+          <h3 className="text-xl font-bold leading-tight text-brand-navy sm:text-2xl">{name}</h3>
           <p className="mt-2 text-base font-bold uppercase text-brand-navy/65">{role}</p>
           <p className="mt-5 text-lg leading-8 text-ink-muted">{description}</p>
         </div>

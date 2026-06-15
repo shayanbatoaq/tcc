@@ -17,7 +17,7 @@ export function SectionHeader({ align = "left", className, copy, dark = false, e
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={cn("mt-4 text-3xl font-bold leading-[1.08] sm:text-5xl", dark ? "text-white" : "text-brand-navy")}>
+      <h2 className={cn("mt-4 text-2xl font-bold leading-[1.08] sm:text-5xl", dark ? "text-white" : "text-brand-navy")}>
         {title}
       </h2>
       {copy ? <p className={cn("mt-5 max-w-3xl text-lg leading-8 sm:text-xl", dark ? "text-white/72" : "text-ink-muted")}>{copy}</p> : null}

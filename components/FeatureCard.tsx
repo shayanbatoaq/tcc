@@ -28,7 +28,7 @@ export function FeatureCard({ copy, dark = false, Icon, title }: FeatureCardProp
         >
           <Icon aria-hidden size={23} />
         </div>
-        <h3 className="text-2xl font-bold leading-tight">{title}</h3>
+        <h3 className="text-xl font-bold leading-tight sm:text-2xl">{title}</h3>
         <p className={cn("mt-4 text-lg leading-8", dark ? "text-white/72" : "text-ink-muted")}>{copy}</p>
       </div>
       <span className={cn("mt-8 inline-flex items-center gap-2 self-end text-base font-bold", dark ? "text-brand-gold" : "text-brand-navy")}>
