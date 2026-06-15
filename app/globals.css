@@ -53,7 +53,11 @@ textarea {
 h1,
 h2,
 h3,
-h4,
+h4 {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  letter-spacing: 0;
+}
+
 .font-brand {
   font-family: "Trajan Pro", "Cinzel", var(--font-cinzel), "Cormorant Garamond", var(--font-cormorant), serif;
   letter-spacing: 0;

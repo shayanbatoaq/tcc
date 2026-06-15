@@ -39,7 +39,7 @@ export function Footer() {
         </div>
 
         <nav aria-label="Footer navigation">
-          <h2 className="font-brand text-base font-bold uppercase text-brand-gold">Quick Links</h2>
+          <h2 className="text-base font-bold text-brand-gold">Quick Links</h2>
           <div className="mt-5 grid gap-3 text-lg">
             {links.map((link) => (
               <Link key={link.href} href={link.href} className="text-white/70 transition hover:text-white">
@@ -50,7 +50,7 @@ export function Footer() {
         </nav>
 
         <div>
-          <h2 className="font-brand text-base font-bold uppercase text-brand-gold">Contact</h2>
+          <h2 className="text-base font-bold text-brand-gold">Contact</h2>
           <div className="mt-5 grid gap-4 text-white/72">
             <p className="flex items-center gap-3">
               <Mail aria-hidden size={18} />
