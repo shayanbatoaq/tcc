@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Cinzel, Inter } from "next/font/google";
+import { Cinzel, Cormorant_Garamond } from "next/font/google";
 import { Footer } from "@/components/Footer";
 import { Navbar } from "@/components/Navbar";
 import "./globals.css";
@@ -8,11 +8,14 @@ const cinzel = Cinzel({
   variable: "--font-cinzel",
   subsets: ["latin"],
   weight: ["400", "500", "600", "700", "800", "900"],
+  display: "swap",
 });
 
-const inter = Inter({
-  variable: "--font-inter",
+const cormorant = Cormorant_Garamond({
+  variable: "--font-cormorant",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -22,18 +25,19 @@ export const metadata: Metadata = {
     template: "%s | The Corporate Lens",
   },
   description:
-    "The Corporate Lens is a corporate media and storytelling platform spotlighting the people, decisions, and ideas shaping Pakistan's business landscape.",
+    "The Corporate Lens is a premium corporate media and storytelling platform spotlighting the people, decisions, and developments shaping Pakistan's corporate landscape.",
   keywords: [
     "The Corporate Lens",
+    "Beyond the Headlines",
     "corporate storytelling Pakistan",
     "business media Pakistan",
     "corporate journalism",
-    "strategic communication",
+    "executive interviews",
   ],
   openGraph: {
-    title: "The Corporate Lens",
+    title: "The Corporate Lens | Beyond the Headlines",
     description:
-      "Corporate media, editorial expertise, and strategic storytelling for Pakistan's business landscape.",
+      "Premium corporate media, editorial credibility, and executive storytelling for Pakistan's business landscape.",
     url: "https://thecorporatelens.com",
     siteName: "The Corporate Lens",
     type: "website",
@@ -41,8 +45,8 @@ export const metadata: Metadata = {
     images: [
       {
         url: "/the-corporate-lens-logo.png",
-        width: 1024,
-        height: 1024,
+        width: 1254,
+        height: 1254,
         alt: "The Corporate Lens logo",
       },
     ],
@@ -64,7 +68,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${cinzel.variable} ${inter.variable}`}>
+    <html lang="en" className={`${cinzel.variable} ${cormorant.variable}`}>
       <body className="antialiased">
         <Navbar />
         <main>{children}</main>

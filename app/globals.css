@@ -3,19 +3,20 @@
 :root {
   --background: #ffffff;
   --foreground: #0f1c2a;
-  --brand-yellow: #f0cb30;
+  --brand-gold: #f0cb30;
   --brand-navy: #0f1c2a;
-  --ink-soft: #46515f;
-  --line: #e6e1d4;
-  --paper: #f8f7f2;
+  --ink-muted: #4f5b68;
+  --line: #d9dde2;
+  --paper: #f6f7f8;
+  --font-heading-stack: "Trajan Pro", "Cinzel", "Cormorant Garamond", serif;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --color-brand-yellow: var(--brand-yellow);
+  --color-brand-gold: var(--brand-gold);
   --color-brand-navy: var(--brand-navy);
-  --color-ink-soft: var(--ink-soft);
+  --color-ink-muted: var(--ink-muted);
   --color-line: var(--line);
   --color-paper: var(--paper);
 }
@@ -32,32 +33,54 @@ body {
   min-height: 100vh;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-inter), Arial, Helvetica, sans-serif;
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+  font-size: 18px;
+  font-weight: 500;
 }
 
 button,
 input,
+select,
 textarea {
   font: inherit;
 }
 
 ::selection {
-  background: rgba(240, 203, 48, 0.45);
+  background: rgba(240, 203, 48, 0.55);
   color: var(--brand-navy);
 }
 
+h1,
+h2,
+h3,
+h4,
 .font-brand {
-  font-family: var(--font-cinzel), Georgia, "Times New Roman", serif;
+  font-family: "Trajan Pro", "Cinzel", var(--font-cinzel), "Cormorant Garamond", var(--font-cormorant), serif;
+  letter-spacing: 0;
 }
 
-.editorial-grid {
+.font-body {
+  font-family: var(--font-cormorant), "Cormorant Garamond", Georgia, serif;
+}
+
+.lens-grid {
   background-image:
-    linear-gradient(rgba(15, 28, 42, 0.055) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(15, 28, 42, 0.055) 1px, transparent 1px);
-  background-size: 42px 42px;
+    linear-gradient(rgba(15, 28, 42, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(15, 28, 42, 0.06) 1px, transparent 1px);
+  background-size: 44px 44px;
 }
 
 .section-shell {
   margin-inline: auto;
-  width: min(100% - 2rem, 1180px);
+  width: min(100% - 2rem, 1188px);
+}
+
+.thin-rule {
+  border-color: rgba(15, 28, 42, 0.14);
+}
+
+@media (min-width: 640px) {
+  .section-shell {
+    width: min(100% - 3rem, 1188px);
+  }
 }

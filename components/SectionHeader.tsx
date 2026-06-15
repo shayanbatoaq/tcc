@@ -13,14 +13,14 @@ export function SectionHeader({ align = "left", className, copy, dark = false, e
   return (
     <div className={cn(align === "center" && "mx-auto text-center", className)}>
       {eyebrow ? (
-        <p className={cn("font-brand text-xs font-bold uppercase tracking-[0.28em]", dark ? "text-brand-yellow" : "text-brand-navy/60")}>
+        <p className={cn("font-brand text-sm font-bold uppercase", dark ? "text-brand-gold" : "text-brand-navy/62")}>
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={cn("font-brand mt-4 text-3xl font-bold leading-tight sm:text-5xl", dark ? "text-white" : "text-brand-navy")}>
+      <h2 className={cn("mt-4 text-3xl font-bold leading-[1.08] sm:text-5xl", dark ? "text-white" : "text-brand-navy")}>
         {title}
       </h2>
-      {copy ? <p className={cn("mt-5 text-base leading-8 sm:text-lg", dark ? "text-white/70" : "text-ink-soft")}>{copy}</p> : null}
+      {copy ? <p className={cn("mt-5 max-w-3xl text-lg leading-8 sm:text-xl", dark ? "text-white/72" : "text-ink-muted")}>{copy}</p> : null}
     </div>
   );
 }
