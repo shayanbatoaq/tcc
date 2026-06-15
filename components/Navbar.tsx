@@ -28,7 +28,7 @@ export function Navbar() {
             width={1253}
             height={525}
             loading="eager"
-            className="h-10 w-auto sm:h-12"
+            className="h-12 w-auto sm:h-16"
           />
         </Link>
 

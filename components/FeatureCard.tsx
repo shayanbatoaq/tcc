@@ -16,7 +16,7 @@ export function FeatureCard({ copy, dark = false, Icon, title }: FeatureCardProp
         "group grid min-h-64 rounded-sm border p-6 transition",
         dark
           ? "border-white/14 bg-white/[0.04] text-white hover:border-brand-gold"
-          : "border-line bg-white text-brand-navy hover:border-brand-navy hover:shadow-[8px_8px_0_#F0CB30]",
+          : "border-line bg-white text-brand-navy hover:border-brand-navy hover:shadow-[8px_8px_0_#f6bc23]",
       )}
     >
       <div>

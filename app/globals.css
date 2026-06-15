@@ -3,7 +3,7 @@
 :root {
   --background: #ffffff;
   --foreground: #0f1c2a;
-  --brand-gold: #f0cb30;
+  --brand-gold: #f6bc23;
   --brand-navy: #0f1c2a;
   --ink-muted: #4f5b68;
   --line: #d9dde2;
@@ -46,7 +46,7 @@ textarea {
 }
 
 ::selection {
-  background: rgba(240, 203, 48, 0.55);
+  background: rgba(246, 188, 35, 0.55);
   color: var(--brand-navy);
 }
 

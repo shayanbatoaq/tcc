@@ -12,7 +12,7 @@ type ButtonProps = {
 };
 
 const variants = {
-  primary: "bg-brand-navy text-white shadow-[6px_6px_0_#F0CB30] hover:-translate-y-0.5 hover:shadow-[8px_8px_0_#F0CB30]",
+  primary: "bg-brand-navy text-white shadow-[6px_6px_0_#f6bc23] hover:-translate-y-0.5 hover:shadow-[8px_8px_0_#f6bc23]",
   secondary: "border border-brand-navy bg-white text-brand-navy hover:bg-paper",
   gold: "bg-brand-gold text-brand-navy shadow-[6px_6px_0_rgba(255,255,255,0.28)] hover:-translate-y-0.5",
   ghost: "text-brand-navy underline decoration-brand-gold decoration-4 underline-offset-8 hover:text-brand-navy/70",

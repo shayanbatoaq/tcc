@@ -18,7 +18,7 @@ export function TeamCard({ Icon = UserRound, compact = false, description, name,
     .slice(0, 2);
 
   return (
-    <article className={cn("rounded-sm border border-line bg-white p-6 transition hover:border-brand-navy hover:shadow-[8px_8px_0_#F0CB30]", !compact && "sm:p-8")}>
+    <article className={cn("rounded-sm border border-line bg-white p-6 transition hover:border-brand-navy hover:shadow-[8px_8px_0_#f6bc23]", !compact && "sm:p-8")}>
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
         <div className="flex size-16 shrink-0 items-center justify-center rounded-sm border border-brand-navy bg-brand-gold text-brand-navy">
           {compact ? <span className="font-brand text-xl font-bold">{initials}</span> : <Icon aria-hidden size={26} />}
