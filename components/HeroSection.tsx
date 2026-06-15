@@ -11,8 +11,8 @@ const signals = [
 
 export function HeroSection() {
   return (
-    <section className="relative overflow-hidden border-b border-brand-navy bg-brand-gold text-brand-navy">
-      <div className="section-shell grid min-h-[calc(100svh-121px)] gap-10 py-12 md:py-16 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
+    <section className="lens-grid relative overflow-hidden border-b border-line bg-white text-brand-navy">
+      <div className="section-shell grid min-h-[calc(100svh-81px)] gap-10 py-12 md:py-16 lg:grid-cols-[1.04fr_0.96fr] lg:items-center">
         <MotionDiv
           initial={{ opacity: 0, y: 18 }}
           animate={{ opacity: 1, y: 0 }}

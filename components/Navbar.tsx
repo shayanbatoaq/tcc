@@ -19,19 +19,7 @@ export function Navbar() {
   const pathname = usePathname();
 
   return (
-    <header className="sticky top-0 z-50 border-b border-brand-navy/12 bg-white">
-      <div className="bg-brand-gold text-brand-navy">
-        <div className="section-shell flex min-h-10 items-center justify-between gap-4 text-sm font-semibold">
-          <span className="font-brand uppercase">Beyond the Headlines</span>
-          <div className="hidden items-center gap-6 sm:flex">
-            <span>Corporate Media</span>
-            <Link href="/contact" className="underline decoration-brand-navy/35 underline-offset-4 hover:decoration-brand-navy">
-              Get Featured
-            </Link>
-          </div>
-        </div>
-      </div>
-
+    <header className="sticky top-0 z-50 border-b border-brand-navy/12 bg-brand-gold text-brand-navy">
       <div className="section-shell flex min-h-20 items-center justify-between gap-4">
         <Link href="/" className="flex shrink-0 items-center rounded-sm bg-brand-gold p-1.5" onClick={() => setOpen(false)}>
           <Image
@@ -52,7 +40,7 @@ export function Navbar() {
                 key={link.href}
                 href={link.href}
                 className={cn(
-                  "rounded-sm px-4 py-3 font-brand text-sm font-bold uppercase text-brand-navy transition hover:bg-paper",
+                  "rounded-sm px-4 py-3 font-brand text-sm font-bold uppercase text-brand-navy transition hover:bg-white/45",
                   active && "bg-brand-navy text-white hover:bg-brand-navy",
                 )}
               >
@@ -80,7 +68,7 @@ export function Navbar() {
       </div>
 
       {open ? (
-        <nav className="border-t border-line bg-white px-4 py-4 shadow-[0_22px_44px_rgba(15,28,42,0.14)] md:hidden" aria-label="Mobile navigation">
+        <nav className="border-t border-brand-navy/12 bg-brand-gold px-4 py-4 shadow-[0_22px_44px_rgba(15,28,42,0.14)] md:hidden" aria-label="Mobile navigation">
           <div className="mx-auto grid max-w-xl gap-2">
             {links.map((link) => (
               <Link
