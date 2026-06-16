@@ -1,17 +1,24 @@
 import type { LucideIcon } from "lucide-react";
 import { ArrowRight } from "lucide-react";
+import { MotionArticle } from "@/components/Motion";
 import { cn } from "@/lib/utils";
 
 type FeatureCardProps = {
   copy: string;
   dark?: boolean;
   Icon: LucideIcon;
+  index?: number;
   title: string;
 };
 
-export function FeatureCard({ copy, dark = false, Icon, title }: FeatureCardProps) {
+export function FeatureCard({ copy, dark = false, Icon, index = 0, title }: FeatureCardProps) {
   return (
-    <article
+    <MotionArticle
+      initial={{ opacity: 0, y: 22 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.24 }}
+      transition={{ duration: 0.52, ease: [0.22, 1, 0.36, 1], delay: Math.min(index * 0.055, 0.22) }}
+      whileHover={{ y: -5 }}
       className={cn(
         "group grid min-h-64 rounded-sm border p-6 transition",
         dark
@@ -34,6 +41,6 @@ export function FeatureCard({ copy, dark = false, Icon, title }: FeatureCardProp
       <span className={cn("mt-8 inline-flex items-center gap-2 self-end text-base font-bold", dark ? "text-brand-gold" : "text-brand-navy")}>
         Explore <ArrowRight aria-hidden size={17} className="transition group-hover:translate-x-1" />
       </span>
-    </article>
+    </MotionArticle>
   );
 }

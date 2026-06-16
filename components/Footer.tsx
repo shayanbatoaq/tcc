@@ -2,6 +2,7 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Mail, MapPin } from "lucide-react";
 import { Button } from "@/components/Button";
+import { MotionDiv, MotionFooter } from "@/components/Motion";
 
 const links = [
   { href: "/", label: "Home" },
@@ -11,18 +12,35 @@ const links = [
 
 export function Footer() {
   return (
-    <footer className="bg-brand-navy text-white">
+    <MotionFooter
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.16 }}
+      transition={{ duration: 0.56, ease: [0.22, 1, 0.36, 1] }}
+      className="bg-brand-navy text-white"
+    >
       <div className="border-b border-white/10 bg-brand-gold py-4 text-brand-navy">
-        <div className="section-shell flex flex-col gap-3 md:flex-row md:items-center md:justify-between">
+        <MotionDiv
+          initial={{ opacity: 0, y: 10 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.35 }}
+          transition={{ duration: 0.46, ease: [0.22, 1, 0.36, 1], delay: 0.06 }}
+          className="section-shell flex flex-col gap-3 md:flex-row md:items-center md:justify-between"
+        >
           <p className="font-brand text-lg font-bold">The Corporate Lens</p>
           <Button href="/contact" variant="secondary" className="w-full bg-white md:w-auto">
             Start an Inquiry <ArrowRight aria-hidden size={17} />
           </Button>
-        </div>
+        </MotionDiv>
       </div>
 
       <div className="section-shell grid gap-10 py-12 md:grid-cols-[1.15fr_0.6fr_0.85fr]">
-        <div>
+        <MotionDiv
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+        >
           <Link href="/" className="inline-flex rounded-sm border border-white/15 bg-brand-gold p-2">
             <Image
               src="/the-corporate-lens-logo-cropped.png"
@@ -36,9 +54,15 @@ export function Footer() {
             Beyond the Headlines. Premium corporate media, editorial credibility, and leadership storytelling for
             Pakistan&apos;s business landscape.
           </p>
-        </div>
+        </MotionDiv>
 
-        <nav aria-label="Footer navigation">
+        <MotionDiv
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: 0.14 }}
+        >
+          <nav aria-label="Footer navigation">
           <h2 className="text-base font-bold text-brand-gold">Quick Links</h2>
           <div className="mt-5 grid gap-3 text-lg">
             {links.map((link) => (
@@ -47,9 +71,15 @@ export function Footer() {
               </Link>
             ))}
           </div>
-        </nav>
+          </nav>
+        </MotionDiv>
 
-        <div>
+        <MotionDiv
+          initial={{ opacity: 0, y: 14 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true, amount: 0.25 }}
+          transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
+        >
           <h2 className="text-base font-bold text-brand-gold">Contact</h2>
           <div className="mt-5 grid gap-4 text-white/72">
             <p className="flex items-center gap-3">
@@ -61,7 +91,7 @@ export function Footer() {
               Karachi, Pakistan
             </p>
           </div>
-        </div>
+        </MotionDiv>
       </div>
 
       <div className="border-t border-white/10 py-5">
@@ -69,6 +99,6 @@ export function Footer() {
           Copyright {new Date().getFullYear()} The Corporate Lens. All rights reserved.
         </div>
       </div>
-    </footer>
+    </MotionFooter>
   );
 }

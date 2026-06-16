@@ -12,7 +12,7 @@ import {
 import { CTASection } from "@/components/CTASection";
 import { FeatureCard } from "@/components/FeatureCard";
 import { HeroSection } from "@/components/HeroSection";
-import { MotionSection } from "@/components/Motion";
+import { MotionDiv, MotionSection } from "@/components/Motion";
 import { SectionHeader } from "@/components/SectionHeader";
 
 const features = [
@@ -90,13 +90,19 @@ export default function Home() {
         </div>
 
         <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature) => (
-            <FeatureCard key={feature.title} {...feature} />
+          {features.map((feature, index) => (
+            <FeatureCard key={feature.title} {...feature} index={index} />
           ))}
         </div>
       </MotionSection>
 
-      <section className="bg-brand-navy py-16 text-white sm:py-24">
+      <MotionSection
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.18 }}
+        transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+        className="bg-brand-navy py-16 text-white sm:py-24"
+      >
         <div className="section-shell">
           <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
             <SectionHeader
@@ -106,35 +112,61 @@ export default function Home() {
               dark
             />
             <div className="grid gap-5 md:grid-cols-3">
-              {credibility.map((item) => (
-                <FeatureCard key={item.title} {...item} dark />
+              {credibility.map((item, index) => (
+                <FeatureCard key={item.title} {...item} index={index} dark />
               ))}
             </div>
           </div>
         </div>
-      </section>
+      </MotionSection>
 
-      <section className="lens-grid border-y border-line bg-white py-16 sm:py-24">
+      <MotionSection
+        initial={{ opacity: 0, y: 22 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true, amount: 0.18 }}
+        transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
+        className="lens-grid border-y border-line bg-white py-16 sm:py-24"
+      >
         <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <div className="rounded-sm border border-brand-navy bg-brand-gold p-8 text-brand-navy shadow-[12px_12px_0_#0F1C2A]">
+          <MotionDiv
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.32 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
+            whileHover={{ y: -4 }}
+            className="rounded-sm border border-brand-navy bg-brand-gold p-8 text-brand-navy shadow-[12px_12px_0_#0F1C2A]"
+          >
             <p className="font-brand text-base font-bold uppercase">Get featured</p>
             <h2 className="mt-5 text-3xl font-bold leading-[1.06] sm:text-5xl">Position Your Story Where It Matters</h2>
-          </div>
-          <div>
+          </MotionDiv>
+          <MotionDiv
+            initial={{ opacity: 0, y: 18 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.32 }}
+            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
+          >
             <p className="text-2xl leading-9 text-brand-navy">
               When a company has a meaningful development, leadership milestone, or strategic message, it needs a platform
               that can hold the story with credibility.
             </p>
             <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {["Visibility", "Context", "Credibility"].map((item) => (
-                <div key={item} className="rounded-sm border border-line bg-white p-5 font-brand text-lg font-bold text-brand-navy">
+              {["Visibility", "Context", "Credibility"].map((item, index) => (
+                <MotionDiv
+                  key={item}
+                  initial={{ opacity: 0, y: 12 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, amount: 0.4 }}
+                  transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1], delay: 0.12 + index * 0.06 }}
+                  whileHover={{ y: -3 }}
+                  className="rounded-sm border border-line bg-white p-5 font-brand text-lg font-bold text-brand-navy"
+                >
                   {item}
-                </div>
+                </MotionDiv>
               ))}
             </div>
-          </div>
+          </MotionDiv>
         </div>
-      </section>
+      </MotionSection>
 
       <CTASection
         eyebrow="Ready for the lens"
