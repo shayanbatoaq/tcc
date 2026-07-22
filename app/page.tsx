@@ -1,193 +1,293 @@
+import Image from "next/image";
 import {
+  ArrowDownRight,
+  ArrowUpRight,
   BookOpenText,
   BriefcaseBusiness,
-  CalendarDays,
-  Eye,
+  Building2,
+  ChartNoAxesCombined,
+  Mail,
+  MapPin,
+  MessagesSquare,
   Newspaper,
-  PenLine,
-  ShieldCheck,
-  TrendingUp,
   UsersRound,
 } from "lucide-react";
-import { CTASection } from "@/components/CTASection";
-import { FeatureCard } from "@/components/FeatureCard";
-import { HeroSection } from "@/components/HeroSection";
-import { MotionDiv, MotionSection } from "@/components/Motion";
-import { SectionHeader } from "@/components/SectionHeader";
 
-const features = [
+const navigation = [
+  { href: "#home", label: "Home" },
+  { href: "#about", label: "About" },
+  { href: "#vision", label: "Vision" },
+  { href: "#coverage", label: "Coverage" },
+  { href: "#team", label: "Team" },
+  { href: "#contact", label: "Contact" },
+];
+
+const coverage = [
   {
     title: "Corporate News",
-    copy: "Fast, credible updates on companies, institutions, appointments, partnerships, and market-facing decisions.",
+    description: "Verified developments, decisions, appointments, and milestones.",
     Icon: Newspaper,
   },
   {
     title: "Executive Interviews",
-    copy: "Boardroom conversations with founders, CEOs, directors, and decision-makers shaping business direction.",
+    description: "Direct conversations with the leaders shaping business in Pakistan.",
     Icon: UsersRound,
   },
   {
-    title: "Articles & Analysis",
-    copy: "Editorially framed perspective on corporate strategy, reputation, sectors, leadership, and public trust.",
-    Icon: BookOpenText,
+    title: "Markets & Economy",
+    description: "Clear context for the shifts that affect companies and investors.",
+    Icon: ChartNoAxesCombined,
   },
   {
-    title: "Events & Happenings",
-    copy: "Coverage of launches, forums, conferences, ceremonies, and high-value corporate gatherings.",
-    Icon: CalendarDays,
-  },
-  {
-    title: "Business Updates",
-    copy: "Concise intelligence on announcements, growth moves, industry shifts, and organizational milestones.",
-    Icon: TrendingUp,
-  },
-  {
-    title: "Leadership Stories",
-    copy: "Premium profiles that reveal the judgement, ambition, and human choices behind corporate progress.",
-    Icon: PenLine,
-  },
-];
-
-const credibility = [
-  {
-    title: "Newsroom Judgment",
-    copy: "Seasoned journalists bring editorial discipline, story selection, and context-led framing to every feature.",
-    Icon: ShieldCheck,
-  },
-  {
-    title: "Corporate Context",
-    copy: "Media professionals translate business developments into narratives leaders, stakeholders, and readers can trust.",
+    title: "Boardroom Perspective",
+    description: "Analysis of strategy, reputation, leadership, and public trust.",
     Icon: BriefcaseBusiness,
   },
   {
-    title: "Public Relevance",
-    copy: "Coverage is shaped for clarity, credibility, and the bigger picture behind the announcement.",
-    Icon: Eye,
+    title: "People & Workplace",
+    description: "HR voices, organizational culture, and the people behind progress.",
+    Icon: Building2,
+  },
+  {
+    title: "Ideas & Culture",
+    description: "Books, business travel, leadership wisdom, and a lighter lens.",
+    Icon: BookOpenText,
+  },
+];
+
+const team = [
+  {
+    initials: "HK",
+    name: "Haroon Khalid",
+    role: "Editorial Leadership",
+    description:
+      "A veteran journalist whose career spans Dawn, Tribune 24/7, and Indus News. His experience covers newsroom leadership, content curation, editing, reporting, and bilingual journalism.",
+  },
+  {
+    initials: "SF",
+    name: "Sabeehul-Wara Fasihi",
+    role: "Newsroom Leadership",
+    description:
+      "A media professional with more than a decade in news editing, reporting, and newsroom management, including roles with News 14, Bol Network, Express News, ARY News, Geo News, and News One.",
+  },
+  {
+    initials: "TH",
+    name: "Tariq Habib",
+    role: "Corporate Communications",
+    description:
+      "A marketing and corporate communications professional with 20+ years across media, academia, corporate, and non-profit organizations, specializing in brand, media, digital strategy, and stakeholder engagement.",
   },
 ];
 
 export default function Home() {
   return (
     <>
-      <HeroSection />
-
-      <MotionSection
-        initial={{ opacity: 0, y: 18 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.18 }}
-        transition={{ duration: 0.55, ease: "easeOut" }}
-        className="section-shell py-16 sm:py-24"
-      >
-        <div className="mb-10 grid gap-6 lg:grid-cols-[0.84fr_1.16fr] lg:items-end">
-          <SectionHeader
-            eyebrow="What we cover"
-            title="A corporate media platform built for fast scanning and serious depth."
-            copy="From breaking business updates to leadership profiles, The Corporate Lens gives corporate stories the structure, polish, and editorial confidence they deserve."
-          />
-          <div className="rounded-sm border-l-4 border-brand-gold bg-paper p-6 text-xl leading-8 text-brand-navy">
-            Designed for CEOs, founders, communications leaders, investors, and readers who want substance beyond the press release.
-          </div>
+      <header id="home" className="site-header">
+        <div className="masthead section-shell">
+          <a href="#home" aria-label="The Corporate Lens, back to top" className="brand-link">
+            <Image
+              src="/the-corporate-lens-logo-cropped.png"
+              alt="The Corporate Lens — Beyond the Headlines"
+              width={1253}
+              height={525}
+              priority
+              sizes="(max-width: 720px) 88vw, 680px"
+            />
+          </a>
+          <p className="masthead-note">Pakistan · Corporate · Business · Economy</p>
         </div>
+      </header>
 
-        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
-          {features.map((feature, index) => (
-            <FeatureCard key={feature.title} {...feature} index={index} />
+      <nav className="site-nav" aria-label="Main navigation">
+        <div className="nav-inner section-shell">
+          {navigation.map((item) => (
+            <a key={item.href} href={item.href}>
+              {item.label}
+            </a>
           ))}
         </div>
-      </MotionSection>
+      </nav>
 
-      <MotionSection
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.18 }}
-        transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
-        className="bg-brand-navy py-16 text-white sm:py-24"
-      >
-        <div className="section-shell">
-          <div className="grid gap-10 lg:grid-cols-[0.82fr_1.18fr] lg:items-start">
-            <SectionHeader
-              eyebrow="Editorial credibility"
-              title="Guided by journalists and media professionals who understand consequence."
-              copy="The platform is shaped by experienced newsroom leaders, editors, and corporate communication specialists who know how stories move through public attention."
-              dark
-            />
-            <div className="grid gap-5 md:grid-cols-3">
-              {credibility.map((item, index) => (
-                <FeatureCard key={item.title} {...item} index={index} dark />
+      <main>
+        <section className="hero navy-section" aria-labelledby="hero-title">
+          <div className="section-shell hero-grid">
+            <div className="hero-copy">
+              <p className="eyebrow">Independent corporate journalism</p>
+              <h1 id="hero-title">Pakistan&apos;s corporate story, in sharper focus.</h1>
+              <p className="hero-intro">
+                Credible reporting, executive voices, and market intelligence for people who make consequential decisions.
+              </p>
+              <div className="hero-actions">
+                <a href="#about" className="button button-gold">
+                  Discover our lens <ArrowDownRight aria-hidden="true" size={19} />
+                </a>
+                <a href="#contact" className="text-link">
+                  Share a story <ArrowUpRight aria-hidden="true" size={18} />
+                </a>
+              </div>
+            </div>
+
+            <div className="lens-mark" aria-hidden="true">
+              <span className="lens-ring" />
+              <span className="lens-core">TCL</span>
+            </div>
+          </div>
+        </section>
+
+        <section id="about" className="gold-section content-section" aria-labelledby="about-title">
+          <div className="section-shell about-grid">
+            <div className="section-heading">
+              <p className="eyebrow">About us · Who we are</p>
+              <h2 id="about-title">The insight behind the headline.</h2>
+            </div>
+
+            <div className="about-copy">
+              <p className="lead-copy">
+                The Corporate Lens is Pakistan&apos;s premier digital media platform dedicated to the country&apos;s corporate,
+                business, and economic landscape.
+              </p>
+              <p>
+                We deliver credible journalism, exclusive executive interviews, boardroom perspectives, and in-depth
+                market intelligence that empower business leaders, investors, policymakers, and professionals to make
+                informed decisions.
+              </p>
+              <p>
+                Our accomplished editorial board of veteran journalists, former editors, and industry experts upholds the
+                highest standards of accuracy, integrity, and editorial excellence. Every story is carefully researched,
+                fact-checked, and reviewed for balanced reporting and meaningful analysis.
+              </p>
+              <p>
+                We don&apos;t simply report events—we provide the insight, context, and perspective behind the headlines.
+              </p>
+            </div>
+
+            <aside className="editorial-note" aria-label="Editorial promise">
+              <span>Our editorial promise</span>
+              <strong>Accuracy.</strong>
+              <strong>Integrity.</strong>
+              <strong>Context.</strong>
+            </aside>
+          </div>
+        </section>
+
+        <section id="vision" className="navy-section content-section" aria-labelledby="vision-title">
+          <div className="section-shell">
+            <div className="section-heading section-heading-wide">
+              <p className="eyebrow">Our direction</p>
+              <h2 id="vision-title">Clarity with influence.</h2>
+            </div>
+
+            <div className="statement-grid">
+              <article className="statement-card">
+                <span className="card-number">01</span>
+                <h3>Vision</h3>
+                <p>
+                  To become a trusted editorial platform for Pakistan&apos;s corporate landscape, where meaningful business
+                  stories are presented with clarity, credibility, and influence.
+                </p>
+              </article>
+              <article className="statement-card statement-card-solid">
+                <span className="card-number">02</span>
+                <h3>Mission</h3>
+                <p>
+                  To spotlight companies, leaders, decisions, and developments through premium journalism, executive
+                  storytelling, and thoughtful business analysis.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
+        <section id="coverage" className="gold-section content-section" aria-labelledby="coverage-title">
+          <div className="section-shell">
+            <div className="section-heading coverage-heading">
+              <div>
+                <p className="eyebrow">What we cover</p>
+                <h2 id="coverage-title">Business, without the noise.</h2>
+              </div>
+              <p>Six focused beats. One clear editorial standard.</p>
+            </div>
+
+            <div className="coverage-grid">
+              {coverage.map(({ title, description, Icon }, index) => (
+                <article key={title} className="coverage-card">
+                  <div className="coverage-card-top">
+                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <Icon aria-hidden="true" size={23} strokeWidth={1.7} />
+                  </div>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </article>
+              ))}
+            </div>
+
+            <div className="topic-strip" aria-label="Additional editorial topics">
+              {[
+                "Corporate culture",
+                "Boardroom wit",
+                "Leadership quotes",
+                "HR voices",
+                "Book reviews",
+                "Business travel",
+              ].map((topic) => (
+                <span key={topic}>{topic}</span>
               ))}
             </div>
           </div>
-        </div>
-      </MotionSection>
+        </section>
 
-      <MotionSection
-        initial={{ opacity: 0, y: 22 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true, amount: 0.18 }}
-        transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
-        className="lens-grid border-y border-line bg-white py-16 sm:py-24"
-      >
-        <div className="section-shell grid gap-10 lg:grid-cols-[0.9fr_1.1fr] lg:items-center">
-          <MotionDiv
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.32 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1] }}
-            whileHover={{ y: -4 }}
-            className="rounded-sm border border-brand-navy bg-brand-gold p-8 text-brand-navy shadow-[12px_12px_0_#0F1C2A]"
-          >
-            <p className="font-brand text-base font-bold uppercase">Get featured</p>
-            <h2 className="mt-5 text-3xl font-bold leading-[1.06] sm:text-5xl">Position Your Story Where It Matters</h2>
-          </MotionDiv>
-          <MotionDiv
-            initial={{ opacity: 0, y: 18 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, amount: 0.32 }}
-            transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
-          >
-            <p className="text-2xl leading-9 text-brand-navy">
-              When a company has a meaningful development, leadership milestone, or strategic message, it needs a platform
-              that can hold the story with credibility.
-            </p>
-            <div className="mt-8 grid gap-4 sm:grid-cols-3">
-              {["Visibility", "Context", "Credibility"].map((item, index) => (
-                <MotionDiv
-                  key={item}
-                  initial={{ opacity: 0, y: 12 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true, amount: 0.4 }}
-                  transition={{ duration: 0.42, ease: [0.22, 1, 0.36, 1], delay: 0.12 + index * 0.06 }}
-                  whileHover={{ y: -3 }}
-                  className="rounded-sm border border-line bg-white p-5 font-brand text-lg font-bold text-brand-navy"
-                >
-                  {item}
-                </MotionDiv>
+        <section id="team" className="navy-section content-section" aria-labelledby="team-title">
+          <div className="section-shell">
+            <div className="section-heading team-heading">
+              <div>
+                <p className="eyebrow">Editorial board</p>
+                <h2 id="team-title">Experience behind every story.</h2>
+              </div>
+              <p>
+                Veteran newsroom judgment meets modern corporate communication.
+              </p>
+            </div>
+
+            <div className="team-grid">
+              {team.map((member, index) => (
+                <article key={member.name} className="team-card">
+                  <div className="team-card-head">
+                    <span className="initials">{member.initials}</span>
+                    <span className="card-number">0{index + 1}</span>
+                  </div>
+                  <h3>{member.name}</h3>
+                  <p className="team-role">{member.role}</p>
+                  <p className="team-bio">{member.description}</p>
+                </article>
               ))}
             </div>
-          </MotionDiv>
+          </div>
+        </section>
+
+        <section id="contact" className="gold-section contact-section" aria-labelledby="contact-title">
+          <div className="section-shell contact-grid">
+            <div>
+              <p className="eyebrow">Contact</p>
+              <h2 id="contact-title">Have a corporate story worth telling?</h2>
+            </div>
+            <div className="contact-copy">
+              <p>Share the essentials with our editorial team. We&apos;ll bring the context.</p>
+              <a href="mailto:info@thecorporatelens.com" className="button button-navy">
+                <Mail aria-hidden="true" size={19} /> Email the newsroom
+              </a>
+              <p className="location"><MapPin aria-hidden="true" size={17} /> Karachi, Pakistan</p>
+            </div>
+          </div>
+        </section>
+      </main>
+
+      <footer className="site-footer">
+        <div className="section-shell footer-inner">
+          <p>© {new Date().getFullYear()} The Corporate Lens</p>
+          <p>Beyond the Headlines</p>
+          <a href="#home">Back to top ↑</a>
         </div>
-      </MotionSection>
-
-      <CTASection
-        eyebrow="Ready for the lens"
-        title="Put your corporate story in front of a more discerning audience."
-        copy="Talk to The Corporate Lens about profiles, features, interviews, editorial collaborations, and business updates."
-        primaryHref="/contact"
-        primaryLabel="Contact Us"
-        secondaryHref="/about"
-        secondaryLabel="About the Platform"
-      />
-
-      <CTASection
-        tone="white"
-        eyebrow="Closing note"
-        title="Beyond the headline is where reputation is built."
-        copy="We help corporate stories become clearer, more credible, and more memorable."
-        primaryHref="/contact"
-        primaryLabel="Start an Inquiry"
-        secondaryHref="/about"
-        secondaryLabel="Meet the Team"
-      />
+      </footer>
     </>
   );
 }
