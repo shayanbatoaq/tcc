@@ -8,7 +8,6 @@ import {
   ChartNoAxesCombined,
   Mail,
   MapPin,
-  MessagesSquare,
   Newspaper,
   UsersRound,
 } from "lucide-react";
@@ -283,7 +282,10 @@ export default function Home() {
 
       <footer className="site-footer">
         <div className="section-shell footer-inner">
-          <p>© {new Date().getFullYear()} The Corporate Lens</p>
+          <p>
+            © {new Date().getFullYear()} The Corporate Lens · Powered by{" "}
+            <a href="https://patricians.pk">Patricians</a>
+          </p>
           <p>Beyond the Headlines</p>
           <a href="#home">Back to top ↑</a>
         </div>
