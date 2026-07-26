@@ -6,7 +6,7 @@ import { Send } from "lucide-react";
 import { Button } from "@/components/Button";
 
 const fieldClass =
-  "min-h-12 rounded-sm border border-line bg-white px-4 py-3 text-lg text-brand-navy outline-none transition placeholder:text-brand-navy/42 focus:border-brand-navy focus:shadow-[4px_4px_0_#f6bc23]";
+  "min-h-12 rounded-sm border border-line bg-white px-4 py-3 text-lg text-brand-navy outline-none transition placeholder:text-brand-navy/42 focus:border-brand-navy focus:shadow-[4px_4px_0_#F5B800]";
 
 export function ContactForm() {
   const [sent, setSent] = useState(false);

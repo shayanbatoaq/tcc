@@ -26,7 +26,7 @@ export function TeamCard({ Icon = UserRound, compact = false, description, index
       viewport={{ once: true, amount: 0.24 }}
       transition={{ duration: 0.52, ease: [0.22, 1, 0.36, 1], delay: Math.min(index * 0.065, 0.2) }}
       whileHover={{ y: -5 }}
-      className={cn("rounded-sm border border-line bg-white p-6 transition hover:border-brand-navy hover:shadow-[8px_8px_0_#f6bc23]", !compact && "sm:p-8")}
+      className={cn("rounded-sm border border-line bg-white p-6 transition hover:border-brand-navy hover:shadow-[8px_8px_0_#F5B800]", !compact && "sm:p-8")}
     >
       <div className="flex flex-col gap-5 sm:flex-row sm:items-start">
         <div className="flex size-16 shrink-0 items-center justify-center rounded-sm border border-brand-navy bg-brand-gold text-brand-navy">

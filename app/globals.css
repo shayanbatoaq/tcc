@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --gold: #f6bc23;
+  --gold: #F5B800;
   --navy: #0f1c2a;
   --section-space: clamp(5rem, 10vw, 9rem);
   --shell: min(1180px, calc(100% - 2.5rem));
