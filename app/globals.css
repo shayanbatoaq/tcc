@@ -56,13 +56,15 @@ select {
 
 .masthead {
   display: grid;
+  height: 130px;
+  align-items: center;
   justify-items: center;
-  padding-block: clamp(1rem, 3vw, 2.25rem) 0.8rem;
+  padding-block: 8px;
 }
 
 .brand-link {
   display: block;
-  width: min(440px, 60vw);
+  width: min(272px, 60vw);
   line-height: 0;
 }
 
@@ -177,7 +179,7 @@ h3 {
 h1 {
   max-width: 920px;
   margin-bottom: 1.75rem;
-  font-size: clamp(3.15rem, 8.2vw, 7.35rem);
+  font-size: 32px;
   font-weight: 700;
   line-height: 0.98;
 }
@@ -185,14 +187,14 @@ h1 {
 h2 {
   max-width: 780px;
   margin-bottom: 0;
-  font-size: clamp(2.4rem, 5.2vw, 5rem);
+  font-size: 32px;
   font-weight: 700;
   line-height: 1.02;
 }
 
 h3 {
   margin-bottom: 0;
-  font-size: clamp(1.35rem, 2.2vw, 2rem);
+  font-size: 20px;
   line-height: 1.15;
 }
 
