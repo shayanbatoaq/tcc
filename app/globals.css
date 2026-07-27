@@ -21,7 +21,7 @@ body {
   min-height: 100vh;
   background: var(--navy);
   color: var(--gold);
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: var(--font-body), Verdana, Arial, sans-serif;
   font-size: 17px;
   line-height: 1.65;
   text-rendering: optimizeLegibility;
@@ -57,12 +57,12 @@ select {
 .masthead {
   display: grid;
   justify-items: center;
-  padding-block: clamp(1.6rem, 4.5vw, 3.5rem) 1.25rem;
+  padding-block: clamp(1rem, 3vw, 2.25rem) 0.8rem;
 }
 
 .brand-link {
   display: block;
-  width: min(680px, 92vw);
+  width: min(440px, 60vw);
   line-height: 0;
 }
 
@@ -78,15 +78,6 @@ select {
 .site-footer a:focus-visible {
   outline: 3px solid currentColor;
   outline-offset: 5px;
-}
-
-.masthead-note {
-  margin: 1rem 0 0;
-  font-size: 0.68rem;
-  font-weight: 800;
-  letter-spacing: 0.24em;
-  text-align: center;
-  text-transform: uppercase;
 }
 
 .site-nav {
@@ -113,7 +104,6 @@ select {
 .site-nav a {
   flex: 0 0 auto;
   padding: 1rem clamp(0.85rem, 2.4vw, 1.7rem);
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: 0.69rem;
   font-weight: 700;
   letter-spacing: 0.13em;
@@ -164,7 +154,6 @@ select {
 
 .eyebrow {
   margin: 0 0 1.4rem;
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: 0.72rem;
   font-weight: 800;
   letter-spacing: 0.2em;
@@ -230,7 +219,6 @@ h3 {
   gap: 0.65rem;
   border: 1px solid currentColor;
   padding: 0.8rem 1.2rem;
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: 0.74rem;
   font-weight: 800;
   letter-spacing: 0.1em;
@@ -297,7 +285,6 @@ h3 {
 }
 
 .lens-core {
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: clamp(1.2rem, 3vw, 2.25rem);
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -331,32 +318,6 @@ h3 {
   line-height: 1.32;
 }
 
-.editorial-note {
-  display: grid;
-  align-content: start;
-  gap: 0.25rem;
-  border-top: 1px solid var(--navy);
-  padding-top: 1rem;
-}
-
-.editorial-note span {
-  margin-bottom: 0.7rem;
-  font-size: 0.72rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-}
-
-.editorial-note strong {
-  font-family: var(--font-cinzel), Georgia, serif;
-  font-size: clamp(1.45rem, 3vw, 2.25rem);
-  line-height: 1.2;
-}
-
-.section-heading-wide {
-  margin-bottom: clamp(3rem, 6vw, 5rem);
-}
-
 .statement-grid {
   display: grid;
   border: 1px solid var(--gold);
@@ -379,7 +340,6 @@ h3 {
 .card-number {
   display: block;
   margin-bottom: 4rem;
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: 0.7rem;
   font-weight: 800;
   letter-spacing: 0.14em;
@@ -418,10 +378,9 @@ h3 {
   border-right: 1px solid var(--navy);
   border-bottom: 1px solid var(--navy);
   padding: 1.5rem;
-  transition: background-color 180ms ease, color 180ms ease;
 }
 
-.coverage-card:hover {
+.coverage-card-navy {
   background: var(--navy);
   color: var(--gold);
 }
@@ -434,7 +393,6 @@ h3 {
 }
 
 .coverage-card-top span {
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: 0.68rem;
   font-weight: 800;
 }
@@ -449,22 +407,6 @@ h3 {
   line-height: 1.55;
 }
 
-.topic-strip {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.7rem;
-  margin-top: 2rem;
-}
-
-.topic-strip span {
-  border: 1px solid var(--navy);
-  padding: 0.45rem 0.7rem;
-  font-size: 0.76rem;
-  font-weight: 800;
-  letter-spacing: 0.05em;
-  text-transform: uppercase;
-}
-
 .team-grid {
   display: grid;
   gap: 1rem;
@@ -476,13 +418,11 @@ h3 {
   flex-direction: column;
   border: 1px solid var(--gold);
   padding: clamp(1.5rem, 3vw, 2.3rem);
-  transition: background-color 180ms ease, color 180ms ease, transform 180ms ease;
 }
 
-.team-card:hover {
+.team-card-gold {
   background: var(--gold);
   color: var(--navy);
-  transform: translateY(-5px);
 }
 
 .initials {
@@ -492,7 +432,6 @@ h3 {
   place-items: center;
   border: 1px solid currentColor;
   border-radius: 50%;
-  font-family: var(--font-cinzel), Georgia, serif;
   font-size: 0.8rem;
   font-weight: 800;
 }
@@ -583,10 +522,6 @@ h3 {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   }
 
-  .editorial-note {
-    grid-column: 2;
-  }
-
   .statement-grid,
   .coverage-grid,
   .team-grid,
@@ -608,23 +543,11 @@ h3 {
     grid-template-columns: repeat(3, minmax(0, 1fr));
   }
 
-  .about-grid {
-    grid-template-columns: minmax(0, 0.78fr) minmax(0, 1.18fr) minmax(180px, 0.34fr);
-  }
-
-  .editorial-note {
-    grid-column: auto;
-  }
 }
 
 @media (max-width: 699px) {
   .nav-inner {
     justify-content: flex-start;
-  }
-
-  .masthead-note {
-    font-size: 0.6rem;
-    letter-spacing: 0.14em;
   }
 
   .lens-mark {

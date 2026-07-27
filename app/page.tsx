@@ -15,8 +15,7 @@ import {
 const navigation = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#vision", label: "Vision" },
-  { href: "#coverage", label: "Coverage" },
+  { href: "#vision", label: "Vision and Mission" },
   { href: "#team", label: "Team" },
   { href: "#contact", label: "Contact" },
 ];
@@ -93,7 +92,6 @@ export default function Home() {
               sizes="(max-width: 720px) 88vw, 680px"
             />
           </a>
-          <p className="masthead-note">Pakistan · Corporate · Business · Economy</p>
         </div>
       </header>
 
@@ -111,7 +109,6 @@ export default function Home() {
         <section className="hero navy-section" aria-labelledby="hero-title">
           <div className="section-shell hero-grid">
             <div className="hero-copy">
-              <p className="eyebrow">Independent corporate journalism</p>
               <h1 id="hero-title">Pakistan&apos;s corporate story, in sharper focus.</h1>
               <p className="hero-intro">
                 Credible reporting, executive voices, and market intelligence for people who make consequential decisions.
@@ -160,24 +157,13 @@ export default function Home() {
               </p>
             </div>
 
-            <aside className="editorial-note" aria-label="Editorial promise">
-              <span>Our editorial promise</span>
-              <strong>Accuracy.</strong>
-              <strong>Integrity.</strong>
-              <strong>Context.</strong>
-            </aside>
           </div>
         </section>
 
-        <section id="vision" className="navy-section content-section" aria-labelledby="vision-title">
+        <section id="vision" className="navy-section content-section" aria-label="Vision and mission">
           <div className="section-shell">
-            <div className="section-heading section-heading-wide">
-              <p className="eyebrow">Our direction</p>
-              <h2 id="vision-title">Clarity with influence.</h2>
-            </div>
-
             <div className="statement-grid">
-              <article className="statement-card">
+              <article className="statement-card statement-card-solid">
                 <span className="card-number">01</span>
                 <h3>Vision</h3>
                 <p>
@@ -185,7 +171,7 @@ export default function Home() {
                   stories are presented with clarity, credibility, and influence.
                 </p>
               </article>
-              <article className="statement-card statement-card-solid">
+              <article className="statement-card">
                 <span className="card-number">02</span>
                 <h3>Mission</h3>
                 <p>
@@ -209,7 +195,10 @@ export default function Home() {
 
             <div className="coverage-grid">
               {coverage.map(({ title, description, Icon }, index) => (
-                <article key={title} className="coverage-card">
+                <article
+                  key={title}
+                  className={`coverage-card${index % 2 === 0 ? " coverage-card-navy" : ""}`}
+                >
                   <div className="coverage-card-top">
                     <span>{String(index + 1).padStart(2, "0")}</span>
                     <Icon aria-hidden="true" size={23} strokeWidth={1.7} />
@@ -220,18 +209,6 @@ export default function Home() {
               ))}
             </div>
 
-            <div className="topic-strip" aria-label="Additional editorial topics">
-              {[
-                "Corporate culture",
-                "Boardroom wit",
-                "Leadership quotes",
-                "HR voices",
-                "Book reviews",
-                "Business travel",
-              ].map((topic) => (
-                <span key={topic}>{topic}</span>
-              ))}
-            </div>
           </div>
         </section>
 
@@ -249,7 +226,10 @@ export default function Home() {
 
             <div className="team-grid">
               {team.map((member, index) => (
-                <article key={member.name} className="team-card">
+                <article
+                  key={member.name}
+                  className={`team-card${index % 2 === 0 ? " team-card-gold" : ""}`}
+                >
                   <div className="team-card-head">
                     <span className="initials">{member.initials}</span>
                     <span className="card-number">0{index + 1}</span>
@@ -270,9 +250,9 @@ export default function Home() {
               <h2 id="contact-title">Have a corporate story worth telling?</h2>
             </div>
             <div className="contact-copy">
-              <p>Share the essentials with our editorial team. We&apos;ll bring the context.</p>
+              <p>Share the essentials with our team. We&apos;ll bring the context.</p>
               <a href="mailto:info@thecorporatelens.com" className="button button-navy">
-                <Mail aria-hidden="true" size={19} /> Email the newsroom
+                <Mail aria-hidden="true" size={19} /> Email Us
               </a>
               <p className="location"><MapPin aria-hidden="true" size={17} /> Karachi, Pakistan</p>
             </div>

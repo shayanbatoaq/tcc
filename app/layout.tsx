@@ -1,11 +1,18 @@
 import type { Metadata } from "next";
-import { Cinzel } from "next/font/google";
+import { Cinzel, Lato } from "next/font/google";
 import "./globals.css";
 
 const cinzel = Cinzel({
   variable: "--font-cinzel",
   subsets: ["latin"],
   weight: ["500", "600", "700", "800"],
+  display: "swap",
+});
+
+const lato = Lato({
+  variable: "--font-body",
+  subsets: ["latin"],
+  weight: ["400", "700", "900"],
   display: "swap",
 });
 
@@ -51,7 +58,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
-    <html lang="en-PK" className={cinzel.variable}>
+    <html lang="en-PK" className={`${cinzel.variable} ${lato.variable}`}>
       <body>{children}</body>
     </html>
   );
