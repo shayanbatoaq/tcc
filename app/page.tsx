@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { SiteNav } from "@/components/site-nav";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -15,7 +16,7 @@ import {
 const navigation = [
   { href: "#home", label: "Home" },
   { href: "#about", label: "About" },
-  { href: "#vision", label: "Vision and Mission" },
+  { href: "#vision", label: "Vision & Mission" },
   { href: "#team", label: "Team" },
   { href: "#contact", label: "Contact" },
 ];
@@ -74,36 +75,94 @@ const team = [
     role: "Corporate Communications",
     description:
       "A marketing and corporate communications professional with 20+ years across media, academia, corporate, and non-profit organizations, specializing in brand, media, digital strategy, and stakeholder engagement.",
+    image: "/tariq-habib-profile.jpeg",
+    imageAlt: "Portrait of Tariq Habib",
+    avatarScale: 1.35,
+    avatarPosition: "center 32%",
+    avatarOrigin: "50% 38%",
+  },
+  {
+    initials: "MS",
+    name: "Muhammad Saifullah",
+    role: "Startup Ecosystem & Social Innovation",
+    description:
+      "A social entrepreneur, startup ecosystem specialist, and certified filmmaker with 15+ years of experience supporting more than 1,000 startups in Pakistan and internationally as a mentor, trainer, and advisor.",
+    image: "/muhammad-saifullah-profile.jpeg",
+    imageAlt: "Portrait of Muhammad Saifullah",
+    avatarScale: 1.85,
+    avatarPosition: "center 12%",
+    avatarOrigin: "50% 20%",
   },
 ];
+
+function LensIcon({
+  statement = false,
+  onDark = false,
+}: {
+  statement?: boolean;
+  onDark?: boolean;
+}) {
+  return (
+    <span
+      className="lens-icon"
+      aria-hidden="true"
+      style={{
+        position: "relative",
+        display: "block",
+        width: "2rem",
+        height: "2rem",
+        flex: "0 0 auto",
+        overflow: "hidden",
+        borderRadius: "50%",
+        marginBottom: statement ? "4rem" : undefined,
+        backgroundColor: onDark ? "#ffd42a" : undefined,
+      }}
+    >
+      <Image
+        src="/the-corporate-lens-logo.png"
+        alt=""
+        width={90}
+        height={90}
+        sizes="90px"
+        style={{
+          position: "absolute",
+          top: "-28.4px",
+          left: "-1.5px",
+          width: "90px",
+          maxWidth: "none",
+          height: "90px",
+          mixBlendMode: onDark ? "difference" : undefined,
+        }}
+      />
+    </span>
+  );
+}
 
 export default function Home() {
   return (
     <>
       <header id="home" className="site-header">
         <div className="masthead section-shell">
-          <a href="#home" aria-label="The Corporate Lens, back to top" className="brand-link">
+          <a
+            href="#home"
+            aria-label="The Corporate Lens, back to top"
+            className="brand-link"
+            style={{ aspectRatio: "1253 / 525", overflow: "hidden" }}
+          >
             <Image
-              src="/the-corporate-lens-logo-cropped.png"
-              alt="The Corporate Lens — Beyond the Headlines"
-              width={1253}
-              height={525}
+              src="/the-corporate-lens-logo-header.png"
+              alt="The Corporate Lens"
+              width={1254}
+              height={1254}
               priority
               sizes="(max-width: 720px) 88vw, 680px"
+              style={{ width: "100%", height: "100%", objectFit: "cover", objectPosition: "center" }}
             />
           </a>
         </div>
       </header>
 
-      <nav className="site-nav" aria-label="Main navigation">
-        <div className="nav-inner section-shell">
-          {navigation.map((item) => (
-            <a key={item.href} href={item.href}>
-              {item.label}
-            </a>
-          ))}
-        </div>
-      </nav>
+      <SiteNav items={navigation} />
 
       <main>
         <section className="hero navy-section" aria-labelledby="hero-title">
@@ -133,8 +192,8 @@ export default function Home() {
         <section id="about" className="gold-section content-section" aria-labelledby="about-title">
           <div className="section-shell about-grid">
             <div className="section-heading">
-              <p className="eyebrow">About us · Who we are</p>
-              <h2 id="about-title">The insight behind the headline.</h2>
+              <p className="eyebrow">ABOUT US</p>
+              <h2 id="about-title">WHO WE ARE</h2>
             </div>
 
             <div className="about-copy">
@@ -160,11 +219,14 @@ export default function Home() {
           </div>
         </section>
 
-        <section id="vision" className="navy-section content-section" aria-label="Vision and mission">
+        <section id="vision" className="navy-section content-section" aria-labelledby="vision-title">
           <div className="section-shell">
+            <p id="vision-title" className="eyebrow" style={{ marginBottom: "clamp(3rem, 7vw, 5.5rem)" }}>
+              Vision &amp; Mission
+            </p>
             <div className="statement-grid">
               <article className="statement-card statement-card-solid">
-                <span className="card-number">01</span>
+                <LensIcon statement />
                 <h3>Vision</h3>
                 <p>
                   To become a trusted editorial platform for Pakistan&apos;s corporate landscape, where meaningful business
@@ -172,7 +234,7 @@ export default function Home() {
                 </p>
               </article>
               <article className="statement-card">
-                <span className="card-number">02</span>
+                <LensIcon statement onDark />
                 <h3>Mission</h3>
                 <p>
                   To spotlight companies, leaders, decisions, and developments through premium journalism, executive
@@ -185,13 +247,9 @@ export default function Home() {
 
         <section id="coverage" className="gold-section content-section" aria-labelledby="coverage-title">
           <div className="section-shell">
-            <div className="section-heading coverage-heading">
-              <div>
-                <p className="eyebrow">What we cover</p>
-                <h2 id="coverage-title">Business, without the noise.</h2>
-              </div>
-              <p>Six focused beats. One clear editorial standard.</p>
-            </div>
+            <p id="coverage-title" className="eyebrow" style={{ marginBottom: "clamp(3rem, 7vw, 5.5rem)" }}>
+              What we cover
+            </p>
 
             <div className="coverage-grid">
               {coverage.map(({ title, description, Icon }, index) => (
@@ -200,7 +258,7 @@ export default function Home() {
                   className={`coverage-card${index % 2 === 0 ? " coverage-card-navy" : ""}`}
                 >
                   <div className="coverage-card-top">
-                    <span>{String(index + 1).padStart(2, "0")}</span>
+                    <LensIcon onDark={index % 2 === 0} />
                     <Icon aria-hidden="true" size={23} strokeWidth={1.7} />
                   </div>
                   <h3>{title}</h3>
@@ -214,25 +272,45 @@ export default function Home() {
 
         <section id="team" className="navy-section content-section" aria-labelledby="team-title">
           <div className="section-shell">
-            <div className="section-heading team-heading">
-              <div>
-                <p className="eyebrow">Editorial board</p>
-                <h2 id="team-title">Experience behind every story.</h2>
-              </div>
-              <p>
-                Veteran newsroom judgment meets modern corporate communication.
-              </p>
-            </div>
+            <p id="team-title" className="eyebrow" style={{ marginBottom: "clamp(3rem, 7vw, 5.5rem)" }}>
+              Editorial board
+            </p>
 
-            <div className="team-grid">
+            <div className="team-grid" style={{ gridAutoRows: "1fr" }}>
               {team.map((member, index) => (
                 <article
                   key={member.name}
                   className={`team-card${index % 2 === 0 ? " team-card-gold" : ""}`}
+                  style={{ height: "100%" }}
                 >
                   <div className="team-card-head">
-                    <span className="initials">{member.initials}</span>
-                    <span className="card-number">0{index + 1}</span>
+                    {member.image ? (
+                      <span
+                        className="initials"
+                        style={{
+                          position: "relative",
+                          width: "5.5rem",
+                          flex: "0 0 auto",
+                          overflow: "hidden",
+                        }}
+                      >
+                        <Image
+                          src={member.image}
+                          alt={member.imageAlt}
+                          fill
+                          sizes="88px"
+                          style={{
+                            objectFit: "cover",
+                            objectPosition: member.avatarPosition,
+                            transform: `scale(${member.avatarScale})`,
+                            transformOrigin: member.avatarOrigin,
+                          }}
+                        />
+                      </span>
+                    ) : (
+                      <span className="initials">{member.initials}</span>
+                    )}
+                    <LensIcon onDark={index % 2 !== 0} />
                   </div>
                   <h3>{member.name}</h3>
                   <p className="team-role">{member.role}</p>
@@ -244,6 +322,15 @@ export default function Home() {
         </section>
 
         <section id="contact" className="gold-section contact-section" aria-labelledby="contact-title">
+          <div className="contact-watermark" aria-hidden="true">
+            <Image
+              src="/the-corporate-lens-logo.png"
+              alt=""
+              width={1254}
+              height={1254}
+              sizes="(max-width: 699px) 16rem, 28rem"
+            />
+          </div>
           <div className="section-shell contact-grid">
             <div>
               <p className="eyebrow">Contact</p>
@@ -251,8 +338,8 @@ export default function Home() {
             </div>
             <div className="contact-copy">
               <p>Share the essentials with our team. We&apos;ll bring the context.</p>
-              <a href="mailto:info@thecorporatelens.com" className="button button-navy">
-                <Mail aria-hidden="true" size={19} /> Email Us
+              <a href="mailto:info@thecorporatelens.com" className="button button-navy email-button">
+                <Mail aria-hidden="true" size={19} /> info@thecorporatelens.com
               </a>
               <p className="location"><MapPin aria-hidden="true" size={17} /> Karachi, Pakistan</p>
             </div>

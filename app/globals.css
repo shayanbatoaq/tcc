@@ -75,6 +75,7 @@ select {
 
 .brand-link:focus-visible,
 .site-nav a:focus-visible,
+.nav-toggle:focus-visible,
 .button:focus-visible,
 .text-link:focus-visible,
 .site-footer a:focus-visible {
@@ -95,12 +96,23 @@ select {
 .nav-inner {
   display: flex;
   justify-content: center;
-  overflow-x: auto;
-  scrollbar-width: none;
 }
 
-.nav-inner::-webkit-scrollbar {
+.nav-links {
+  display: flex;
+  justify-content: center;
+}
+
+.nav-toggle {
   display: none;
+  border: 0;
+  background: transparent;
+  color: inherit;
+  cursor: pointer;
+  font-size: 0.69rem;
+  font-weight: 800;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
 }
 
 .site-nav a {
@@ -339,34 +351,10 @@ h3 {
   color: var(--navy);
 }
 
-.card-number {
-  display: block;
-  margin-bottom: 4rem;
-  font-size: 0.7rem;
-  font-weight: 800;
-  letter-spacing: 0.14em;
-}
-
 .statement-card p {
   max-width: 540px;
   margin: 1.4rem 0 0;
   font-size: clamp(1.05rem, 2vw, 1.3rem);
-}
-
-.coverage-heading,
-.team-heading {
-  display: grid;
-  max-width: none;
-  gap: 2rem;
-  margin-bottom: clamp(3rem, 7vw, 5.5rem);
-}
-
-.coverage-heading > p,
-.team-heading > p {
-  max-width: 390px;
-  margin: 0;
-  align-self: end;
-  font-size: 1.05rem;
 }
 
 .coverage-grid {
@@ -392,11 +380,6 @@ h3 {
   display: flex;
   align-items: center;
   justify-content: space-between;
-}
-
-.coverage-card-top span {
-  font-size: 0.68rem;
-  font-weight: 800;
 }
 
 .coverage-card h3 {
@@ -438,10 +421,6 @@ h3 {
   font-weight: 800;
 }
 
-.team-card-head .card-number {
-  margin: 0;
-}
-
 .team-card h3 {
   margin-top: 4rem;
 }
@@ -461,13 +440,39 @@ h3 {
 }
 
 .contact-section {
+  position: relative;
+  overflow: hidden;
   padding-block: clamp(4.5rem, 9vw, 8rem);
   scroll-margin-top: 4rem;
 }
 
 .contact-grid {
+  position: relative;
+  z-index: 1;
   display: grid;
   gap: 3rem;
+}
+
+.contact-watermark {
+  position: absolute;
+  right: clamp(-7rem, -3vw, -1.5rem);
+  bottom: clamp(-7rem, -5vw, -2.5rem);
+  width: clamp(18rem, 35vw, 30rem);
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 50%;
+  opacity: 0.1;
+  pointer-events: none;
+}
+
+.contact-watermark img {
+  position: absolute;
+  top: -88.75%;
+  left: -4.7%;
+  width: 281.25%;
+  max-width: none;
+  height: 281.25%;
+  mix-blend-mode: multiply;
 }
 
 .contact-copy {
@@ -478,6 +483,10 @@ h3 {
 .contact-copy > p:first-child {
   margin-bottom: 1.7rem;
   font-size: 1.2rem;
+}
+
+.email-button {
+  text-transform: none;
 }
 
 .location {
@@ -524,14 +533,12 @@ h3 {
     grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
   }
 
-  .statement-grid,
-  .coverage-grid,
-  .team-grid,
-  .contact-grid,
-  .coverage-heading,
-  .team-heading {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-  }
+    .statement-grid,
+    .coverage-grid,
+    .team-grid,
+    .contact-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
 
   .statement-card + .statement-card {
     border-top: 0;
@@ -540,16 +547,52 @@ h3 {
 }
 
 @media (min-width: 1000px) {
-  .coverage-grid,
-  .team-grid {
+  .coverage-grid {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
   }
 
 }
 
 @media (max-width: 699px) {
   .nav-inner {
-    justify-content: flex-start;
+    position: relative;
+    display: block;
+  }
+
+  .nav-toggle {
+    display: flex;
+    width: 100%;
+    min-height: 52px;
+    align-items: center;
+    justify-content: space-between;
+    padding-inline: 0.85rem;
+  }
+
+  .nav-links {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    left: 0;
+    display: none;
+    flex-direction: column;
+    border: 1px solid var(--gold);
+    border-top: 0;
+    background: var(--navy);
+    box-shadow: 0 14px 28px rgb(0 0 0 / 24%);
+  }
+
+  .nav-links-open {
+    display: flex;
+  }
+
+  .nav-links a {
+    width: 100%;
+    border-top: 1px solid rgb(245 184 0 / 34%);
+    padding: 0.9rem 0.85rem;
   }
 
   .lens-mark {
