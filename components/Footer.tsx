@@ -17,7 +17,7 @@ export function Footer() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.16 }}
       transition={{ duration: 0.56, ease: [0.22, 1, 0.36, 1] }}
-      className="bg-brand-navy text-white"
+      className="bg-brand-navy text-[#F8F6F1]"
     >
       <div className="border-b border-white/10 bg-brand-gold py-4 text-brand-navy">
         <MotionDiv
@@ -50,7 +50,7 @@ export function Footer() {
               className="h-auto w-64 max-w-full"
             />
           </Link>
-          <p className="mt-6 max-w-md text-lg leading-8 text-white/72">
+          <p className="mt-6 max-w-md text-lg leading-8 text-[#F8F6F1]">
             Beyond the Headlines. Premium corporate media, editorial credibility, and leadership storytelling for
             Pakistan&apos;s business landscape.
           </p>
@@ -63,10 +63,10 @@ export function Footer() {
           transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: 0.14 }}
         >
           <nav aria-label="Footer navigation">
-          <h2 className="text-base font-bold text-brand-gold">Quick Links</h2>
+          <h2 className="text-base font-bold text-[#F8F6F1]">Quick Links</h2>
           <div className="mt-5 grid gap-3 text-lg">
             {links.map((link) => (
-              <Link key={link.href} href={link.href} className="text-white/70 transition hover:text-white">
+              <Link key={link.href} href={link.href} className="text-[#F8F6F1] transition hover:text-[#F8F6F1]">
                 {link.label}
               </Link>
             ))}
@@ -80,8 +80,8 @@ export function Footer() {
           viewport={{ once: true, amount: 0.25 }}
           transition={{ duration: 0.48, ease: [0.22, 1, 0.36, 1], delay: 0.2 }}
         >
-          <h2 className="text-base font-bold text-brand-gold">Contact</h2>
-          <div className="mt-5 grid gap-4 text-white/72">
+          <h2 className="text-base font-bold text-[#F8F6F1]">Contact</h2>
+          <div className="mt-5 grid gap-4 text-[#F8F6F1]">
             <p className="flex items-center gap-3">
               <Mail aria-hidden size={18} />
               info@thecorporatelens.com
@@ -95,7 +95,7 @@ export function Footer() {
       </div>
 
       <div className="border-t border-white/10 py-5">
-        <div className="section-shell text-sm text-white/55">
+        <div className="section-shell text-sm text-[#F8F6F1]">
           Copyright {new Date().getFullYear()} The Corporate Lens. All rights reserved.
         </div>
       </div>

@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { SiteNav } from "@/components/site-nav";
+import { TeamProfiles } from "@/components/TeamProfiles";
 import {
   ArrowDownRight,
   ArrowUpRight,
@@ -61,6 +62,10 @@ const team = [
     role: "Editorial Leadership",
     description:
       "A veteran journalist whose career spans Dawn, Tribune 24/7, and Indus News. His experience covers newsroom leadership, content curation, editing, reporting, and bilingual journalism.",
+    profile: [
+      "Haroon Khalid is a seasoned journalist and editorial professional with extensive experience across leading Pakistani media organizations, including Dawn, Tribune 24/7, and Indus News. Over the course of his career, he has progressed from sub-editor to senior editorial leadership roles such as News Editor and Executive Producer, demonstrating strong command over newsroom operations, content curation, and editorial decision-making. His expertise lies in selecting, editing, and shaping news content, supervising editorial teams, and ensuring accuracy, quality, and compliance with professional standards across print, digital, and broadcast platforms.",
+      "With a strong academic background, Haroon holds an M.A. in Mass Communication and an M.A. in International Relations from the University of Karachi, along with a BCS degree from FAST Institute. He is highly skilled in writing, editing, reporting, and translation in both English and Urdu, and is well-versed in modern newsroom tools and workflows. His continuous professional development through workshops in media security, data journalism, and right to information further strengthens his profile, positioning him as a well-rounded media professional committed to editorial excellence and evolving industry practices.",
+    ],
   },
   {
     initials: "SF",
@@ -68,6 +73,10 @@ const team = [
     role: "Newsroom Leadership",
     description:
       "A media professional with more than a decade in news editing, reporting, and newsroom management, including roles with News 14, Bol Network, Express News, ARY News, Geo News, and News One.",
+    profile: [
+      "Sabeehul-Wara Fasihi is an experienced media professional with over a decade of expertise in news editing, reporting, and newsroom management. He is currently serving as Controller News at News 14, and has previously worked with leading media organizations including Bol Network, Express News, ARY News, Geo News, and News One. His core strengths include editorial decision-making, content supervision, assignment planning, and coordination with key stakeholders, ensuring accurate and timely news delivery across platforms.",
+      "He holds a Master’s degree in Mass Communication and is currently pursuing an M.Phil in Humanities. With strong command over newsroom systems such as ENPS and OCTOPUS, along with technical and analytical skills, Sabeeh brings a well-rounded approach to modern journalism. His professional journey is further supported by contributions to social issue reporting, research projects, and active engagement with journalist bodies, reflecting his commitment to credible and impactful media practices.",
+    ],
   },
   {
     initials: "TH",
@@ -75,6 +84,10 @@ const team = [
     role: "Corporate Communications",
     description:
       "A marketing and corporate communications professional with 20+ years across media, academia, corporate, and non-profit organizations, specializing in brand, media, digital strategy, and stakeholder engagement.",
+    profile: [
+      "Tariq Habib is a seasoned marketing and corporate communications professional with 20+ years of cross-sector experience spanning corporate, media, academia, and the non-profit landscape. He brings a strong blend of strategic thinking and creative execution, with expertise in brand building, media relations, digital strategy, and stakeholder engagement. Throughout his career, he has developed impactful communication frameworks, led high-visibility campaigns, and contributed to both print and digital journalism. His work has been associated with leading organizations such as The News International, GEO News, The Aga Khan University, Pak-Qatar Group, and Central Depository Company (CDC), reflecting a well-rounded professional journey rooted in communication excellence.",
+      "In his most recent roles, Tariq has led marketing and corporate communications functions, driving integrated strategies that combine traditional outreach with modern digital platforms. He has successfully managed corporate branding, media engagement, large-scale events, and content development while strengthening organizational visibility and reputation. Known for his strong editorial acumen and ability to craft compelling narratives, he has also contributed articles to prominent publications including Dawn, The News International, and Jang. With a deep understanding of audience behavior and evolving media trends, Tariq continues to position organizations for growth through effective storytelling, strategic communication, and impactful engagement initiatives.",
+    ],
     image: "/tariq-habib-profile.jpeg",
     imageAlt: "Portrait of Tariq Habib",
     avatarScale: 1.35,
@@ -87,6 +100,12 @@ const team = [
     role: "Startup Ecosystem & Social Innovation",
     description:
       "A social entrepreneur, startup ecosystem specialist, and certified filmmaker with 15+ years of experience supporting more than 1,000 startups in Pakistan and internationally as a mentor, trainer, and advisor.",
+    profile: [
+      "Muhammad Saifullah is a seasoned social entrepreneur, startup ecosystem specialist, and certified filmmaker with over 15 years of diverse professional experience. He has played a pivotal role in supporting the creation and growth of over 1,000 startups across Pakistan and internationally, serving as a mentor, trainer, and advisor.",
+      "Globally recognized by Shell LiveWIRE as the best Program Manager across 22 country programs, Saifullah has represented Pakistan on international platforms, delivering training and capacity-building sessions in the UK, Indonesia, Nigeria, and other countries across Europe, Asia, and Africa. He also brings international work experience from the UAE, having worked in Dubai in sales and marketing roles.",
+      "A graduate of the Indus Valley School of Art and Architecture with a diploma in filmmaking, Saifullah combines creativity with purpose through multimedia storytelling, strategic communications, and social innovation. He has assisted in the production of several short films and engages in acting as a personal passion and hobby.",
+      "A father, a traveler, and a culture enthusiast, Saifullah is driven by the desire to create lasting impact, leveraging his skills and experience to make a meaningful difference during his brief stop on this planet.",
+    ],
     image: "/muhammad-saifullah-profile.jpeg",
     imageAlt: "Portrait of Muhammad Saifullah",
     avatarScale: 1.85,
@@ -276,48 +295,7 @@ export default function Home() {
               Editorial board
             </p>
 
-            <div className="team-grid" style={{ gridAutoRows: "1fr" }}>
-              {team.map((member, index) => (
-                <article
-                  key={member.name}
-                  className={`team-card${index % 2 === 0 ? " team-card-gold" : ""}`}
-                  style={{ height: "100%" }}
-                >
-                  <div className="team-card-head">
-                    {member.image ? (
-                      <span
-                        className="initials"
-                        style={{
-                          position: "relative",
-                          width: "5.5rem",
-                          flex: "0 0 auto",
-                          overflow: "hidden",
-                        }}
-                      >
-                        <Image
-                          src={member.image}
-                          alt={member.imageAlt}
-                          fill
-                          sizes="88px"
-                          style={{
-                            objectFit: "cover",
-                            objectPosition: member.avatarPosition,
-                            transform: `scale(${member.avatarScale})`,
-                            transformOrigin: member.avatarOrigin,
-                          }}
-                        />
-                      </span>
-                    ) : (
-                      <span className="initials">{member.initials}</span>
-                    )}
-                    <LensIcon onDark={index % 2 !== 0} />
-                  </div>
-                  <h3>{member.name}</h3>
-                  <p className="team-role">{member.role}</p>
-                  <p className="team-bio">{member.description}</p>
-                </article>
-              ))}
-            </div>
+            <TeamProfiles members={team} />
           </div>
         </section>
 

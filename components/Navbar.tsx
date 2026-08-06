@@ -41,7 +41,7 @@ export function Navbar() {
                 href={link.href}
                 className={cn(
                   "rounded-sm px-4 py-3 font-brand text-sm font-bold uppercase text-brand-navy transition hover:bg-white/45",
-                  active && "bg-brand-navy text-white hover:bg-brand-navy",
+                  active && "bg-brand-navy text-[#F8F6F1] hover:bg-brand-navy",
                 )}
               >
                 {link.label}
@@ -77,7 +77,7 @@ export function Navbar() {
                 onClick={() => setOpen(false)}
                 className={cn(
                   "rounded-sm px-4 py-3 font-brand text-sm font-bold uppercase text-brand-navy",
-                  pathname === link.href && "bg-brand-navy text-white",
+                  pathname === link.href && "bg-brand-navy text-[#F8F6F1]",
                 )}
               >
                 {link.label}

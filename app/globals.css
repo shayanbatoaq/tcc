@@ -3,6 +3,7 @@
 :root {
   --gold: #F5B800;
   --navy: #0f1c2a;
+  --cream: #F8F6F1;
   --section-space: clamp(5rem, 10vw, 9rem);
   --shell: min(1180px, calc(100% - 2.5rem));
 }
@@ -20,7 +21,7 @@ body {
   margin: 0;
   min-height: 100vh;
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
   font-family: var(--font-body), Verdana, Arial, sans-serif;
   font-size: 17px;
   line-height: 1.65;
@@ -41,7 +42,7 @@ select {
 
 ::selection {
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .section-shell {
@@ -90,7 +91,7 @@ select {
   border-top: 1px solid var(--navy);
   border-bottom: 1px solid var(--gold);
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .nav-inner {
@@ -137,7 +138,7 @@ select {
 
 .navy-section {
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .content-section {
@@ -252,7 +253,7 @@ h3 {
 
 .button-navy {
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .text-link {
@@ -372,7 +373,7 @@ h3 {
 
 .coverage-card-navy {
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .coverage-card-top,
@@ -402,12 +403,27 @@ h3 {
   min-height: 430px;
   flex-direction: column;
   border: 1px solid var(--gold);
+  background: transparent;
+  color: var(--cream);
   padding: clamp(1.5rem, 3vw, 2.3rem);
+  cursor: pointer;
+  text-align: left;
+  transition: box-shadow 180ms ease, transform 180ms ease;
 }
 
 .team-card-gold {
   background: var(--gold);
   color: var(--navy);
+}
+
+.team-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 0 rgb(245 184 0 / 18%);
+}
+
+.team-card:focus-visible {
+  outline: 3px solid currentColor;
+  outline-offset: 4px;
 }
 
 .initials {
@@ -421,11 +437,18 @@ h3 {
   font-weight: 800;
 }
 
-.team-card h3 {
+.team-card-name {
+  display: block;
   margin-top: 4rem;
+  font-family: var(--font-cinzel), Georgia, serif;
+  font-size: 20px;
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
 }
 
 .team-role {
+  display: block;
   margin: 0.7rem 0 0;
   font-size: 0.72rem;
   font-weight: 800;
@@ -434,9 +457,147 @@ h3 {
 }
 
 .team-bio {
+  display: block;
   margin: auto 0 0;
   padding-top: 2.5rem;
   line-height: 1.6;
+}
+
+.team-card-action {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-top: 1.5rem;
+  border-bottom: 1px solid currentColor;
+  align-self: flex-start;
+  font-size: 0.7rem;
+  font-weight: 800;
+  letter-spacing: 0.1em;
+  line-height: 1.5;
+  text-transform: uppercase;
+}
+
+.profile-dialog {
+  width: min(1000px, calc(100% - 2rem));
+  max-width: none;
+  max-height: min(88svh, 860px);
+  margin: auto;
+  overflow: hidden;
+  border: 1px solid var(--gold);
+  padding: 0;
+  background: var(--navy);
+  color: var(--cream);
+  box-shadow: 0 32px 90px rgb(0 0 0 / 52%);
+}
+
+.profile-dialog::backdrop {
+  background: rgb(3 10 17 / 84%);
+  backdrop-filter: blur(5px);
+}
+
+.profile-modal {
+  display: grid;
+  grid-template-columns: minmax(220px, 280px) minmax(0, 1fr);
+  max-height: min(88svh, 860px);
+  overflow: auto;
+}
+
+.profile-modal-aside {
+  display: flex;
+  min-height: 100%;
+  flex-direction: column;
+  gap: 1.5rem;
+  justify-content: space-between;
+  background: var(--gold);
+  color: var(--navy);
+  padding: clamp(1.2rem, 3vw, 2rem);
+}
+
+.profile-modal-portrait {
+  position: relative;
+  display: grid;
+  width: 100%;
+  aspect-ratio: 1;
+  overflow: hidden;
+  place-items: center;
+  border: 1px solid var(--navy);
+  background: var(--cream);
+}
+
+.profile-modal-initials {
+  font-family: var(--font-cinzel), Georgia, serif;
+  font-size: clamp(3rem, 8vw, 5.5rem);
+  font-weight: 700;
+  letter-spacing: -0.05em;
+}
+
+.profile-modal-aside-label {
+  border-top: 1px solid currentColor;
+  padding-top: 1rem;
+  font-size: 0.68rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+
+.profile-modal-body {
+  position: relative;
+  padding: clamp(2rem, 5vw, 4.5rem);
+}
+
+.profile-modal-body h2 {
+  max-width: calc(100% - 3rem);
+  font-size: clamp(2rem, 4vw, 3.4rem);
+  line-height: 1;
+}
+
+.profile-modal-close {
+  position: sticky;
+  top: 1rem;
+  z-index: 2;
+  float: right;
+  display: grid;
+  width: 2.75rem;
+  aspect-ratio: 1;
+  margin: -1rem -1rem 0 1rem;
+  place-items: center;
+  border: 1px solid currentColor;
+  background: transparent;
+  color: var(--cream);
+  cursor: pointer;
+  transition: background-color 180ms ease, color 180ms ease;
+}
+
+.profile-modal-close:hover,
+.profile-modal-close:focus-visible {
+  background: var(--cream);
+  color: var(--navy);
+  outline: none;
+}
+
+.profile-modal-role {
+  margin: 1.4rem 0 0;
+  border-left: 3px solid var(--gold);
+  padding-left: 0.9rem;
+  font-size: 0.73rem;
+  font-weight: 800;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.profile-modal-copy {
+  max-width: 690px;
+  margin-top: clamp(2.2rem, 5vw, 3.5rem);
+}
+
+.profile-modal-copy p {
+  margin-bottom: 1.35rem;
+  font-size: clamp(1rem, 1.5vw, 1.08rem);
+  line-height: 1.75;
+}
+
+.profile-modal-copy p:last-child {
+  margin-bottom: 0;
 }
 
 .contact-section {
@@ -501,7 +662,7 @@ h3 {
 .site-footer {
   border-top: 1px solid var(--gold);
   background: var(--navy);
-  color: var(--gold);
+  color: var(--cream);
 }
 
 .footer-inner {
@@ -610,6 +771,34 @@ h3 {
 
   .team-card {
     min-height: 390px;
+  }
+
+  .profile-dialog {
+    width: calc(100% - 1rem);
+    max-height: 92svh;
+  }
+
+  .profile-modal {
+    grid-template-columns: 1fr;
+    max-height: 92svh;
+  }
+
+  .profile-modal-aside {
+    min-height: 0;
+    flex-direction: row;
+    align-items: flex-end;
+  }
+
+  .profile-modal-portrait {
+    width: min(42vw, 170px);
+  }
+
+  .profile-modal-aside-label {
+    max-width: 9rem;
+  }
+
+  .profile-modal-body {
+    padding-top: 3.8rem;
   }
 }
 

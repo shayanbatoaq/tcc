@@ -34,7 +34,7 @@ export function CTASection({
       transition={{ duration: 0.58, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
         "border-y py-14 sm:py-20",
-        tone === "navy" && "border-brand-navy bg-brand-navy text-white",
+        tone === "navy" && "border-brand-navy bg-brand-navy text-[#F8F6F1]",
         tone === "gold" && "border-brand-gold bg-brand-gold text-brand-navy",
         tone === "white" && "border-line bg-white text-brand-navy",
       )}
@@ -46,9 +46,9 @@ export function CTASection({
           viewport={{ once: true, amount: 0.3 }}
           transition={{ duration: 0.55, ease: [0.22, 1, 0.36, 1], delay: 0.08 }}
         >
-          {eyebrow ? <p className={cn("font-brand text-sm font-bold uppercase", dark ? "text-brand-gold" : "text-brand-navy/65")}>{eyebrow}</p> : null}
+          {eyebrow ? <p className={cn("font-brand text-sm font-bold uppercase", dark ? "text-[#F8F6F1]" : "text-brand-navy/65")}>{eyebrow}</p> : null}
           <h2 className="mt-4 max-w-4xl text-3xl font-bold leading-[1.06] sm:text-6xl">{title}</h2>
-          <p className={cn("mt-5 max-w-3xl text-xl leading-8", dark ? "text-white/72" : "text-brand-navy/75")}>{copy}</p>
+          <p className={cn("mt-5 max-w-3xl text-xl leading-8", dark ? "text-[#F8F6F1]" : "text-brand-navy/75")}>{copy}</p>
         </MotionDiv>
         <MotionDiv
           initial={{ opacity: 0, y: 16 }}

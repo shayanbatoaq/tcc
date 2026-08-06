@@ -20,14 +20,14 @@ export function SectionHeader({ align = "left", className, copy, dark = false, e
       className={cn(align === "center" && "mx-auto text-center", className)}
     >
       {eyebrow ? (
-        <p className={cn("font-brand text-sm font-bold uppercase", dark ? "text-brand-gold" : "text-brand-navy/62")}>
+        <p className={cn("font-brand text-sm font-bold uppercase", dark ? "text-[#F8F6F1]" : "text-brand-navy/62")}>
           {eyebrow}
         </p>
       ) : null}
-      <h2 className={cn("mt-4 text-2xl font-bold leading-[1.08] sm:text-5xl", dark ? "text-white" : "text-brand-navy")}>
+      <h2 className={cn("mt-4 text-2xl font-bold leading-[1.08] sm:text-5xl", dark ? "text-[#F8F6F1]" : "text-brand-navy")}>
         {title}
       </h2>
-      {copy ? <p className={cn("mt-5 max-w-3xl text-lg leading-8 sm:text-xl", dark ? "text-white/72" : "text-ink-muted")}>{copy}</p> : null}
+      {copy ? <p className={cn("mt-5 max-w-3xl text-lg leading-8 sm:text-xl", dark ? "text-[#F8F6F1]" : "text-ink-muted")}>{copy}</p> : null}
     </MotionDiv>
   );
 }
